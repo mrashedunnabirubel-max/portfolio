@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Rashedun Nabi Rubel - Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: #0d1117; color: #c9d1d9; scroll-behavior: smooth; line-height: 1.6; }
+    a { color: #00ffcc; text-decoration: none; transition: color 0.3s ease; }
+    a:hover, a:focus { color: #33ffe6; outline: none; }
+    button { cursor: pointer; font-family: inherit; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Hero Section */
+    #hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0d1117 0%, #161b22 100%); position: relative; overflow: hidden; color: #00ffcc; }
+    #hero::before { content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background: radial-gradient(circle at center, #00ffcc33, transparent 70%); animation: pulse 15s ease-in-out infinite; z-index:0; }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:0.3;} 50%{transform:scale(1.2);opacity:0.6;} }
+    #hero > * { position: relative; z-index:1; }
+    #hero h1 { font-size:3.5rem; font-weight:600; margin-bottom:0.3rem; letter-spacing:2px; text-shadow:0 0 8px #00ffccaa; }
+    #hero p { font-size:1.5rem; font-weight:300; margin-bottom:2rem; letter-spacing:1px; text-shadow:0 0 6px #00ffccaa; }
+    .btn-group { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .btn { background:transparent; border:2px solid #00ffcc; color:#00ffcc; padding:0.75rem 1.8rem; font-size:1rem; border-radius:30px; font-weight:600; transition: background 0.3s ease, color 0.3s ease; }
+    .btn:hover, .btn:focus { background:#00ffcc; color:#0d1117; outline:none; }
+
+    /* About Section */
+    #about { padding:4rem 1rem 3rem; background:#161b22; text-align:center; }
+    #about .container { max-width:900px; }
+    #about p { font-size:1.2rem; max-width:700px; margin:0 auto 2rem; font-weight:300; color:#8b949e; }
+    .skills { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem; }
+    .skill-tag { background:#0d1117; border:1.5px solid #00ffcc; color:#00ffcc; padding:0.4rem 1rem; border-radius:20px; font-weight:600; font-size:0.9rem; transition: background 0.3s ease; }
+    .skill-tag:hover { background:#00ffcc; color:#0d1117; }
+
+    /* Portfolio Section */
+    #portfolio { padding:4rem 1rem 3rem; background:#0d1117; text-align:center; }
+    #portfolio h2 { font-size:2.5rem; margin-bottom:2rem; color:#00ffcc; font-weight:600; text-shadow:0 0 6px #00ffccaa; }
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1100px; margin:0 auto; }
+    .project-card { background:#161b22; border-radius:12px; padding:1.5rem; box-shadow:0 0 10px #00ffcc22; display:flex; flex-direction:column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .project-card:hover, .project-card:focus-within { transform:translateY(-6px); box-shadow:0 0 20px #00ffccaa; outline:none; }
+    .project-title { font-size:1.3rem; font-weight:600; margin-bottom:0.5rem; color:#00ffcc; }
+    .project-desc { font-size:1rem; font-weight:300; margin-bottom:1rem; color:#8b949e; flex-grow:1; }
+    .tech-stack { font-family:'Roboto Mono', monospace; font-size:0.85rem; color:#33ffe6; margin-bottom:1rem; }
+    .project-link { background:transparent; border:2px solid #00ffcc; color:#00ffcc; padding:0.5rem 1.2rem; border-radius:30px; font-weight:600; font-size:0.9rem; text-decoration:none; transition: background 0.3s ease,color 0.3s ease; }
+    .project-link:hover, .project-link:focus { background:#00ffcc; color:#0d1117; outline:none; }
+
+    /* Contact Section */
+    #contact { padding:4rem 1rem 3rem; background:#161b22; text-align:center; }
+    #contact h2 { font-size:2.5rem; margin-bottom:2rem; color:#00ffcc; font-weight:600; text-shadow:0 0 6px #00ffccaa; }
+    .contact-info { margin-bottom:2rem; font-size:1rem; color:#8b949e; }
+    .contact-info a { color:#00ffcc; word-break:break-all; }
+    .social-icons { margin:1rem 0 2rem; display:flex; justify-content:center; gap:2rem; }
+    .social-icons a { font-size:1.8rem; color:#00ffcc; transition:color 0.3s ease; }
+    .social-icons a:hover, .social-icons a:focus { color:#33ffe6; outline:none; }
+    form { max-width:500px; margin:0 auto; text-align:left; }
+    label { display:block; margin-bottom:0.3rem; font-weight:600; color:#00ffcc; }
+    input, textarea { width:100%; padding:0.6rem 0.8rem; margin-bottom:1.2rem; border-radius:6px; border:1.5px solid #00ffcc; background:#0d1117; color:#c9d1d9; font-size:1rem; font-family:'Poppins',sans-serif; resize:vertical; transition:border-color 0.3s ease; }
+    input:focus, textarea:focus { border-color:#33ffe6; outline:none; }
+    button[type="submit"] { background:#00ffcc; color:#0d1117; border:none; padding:0.75rem 2rem; font-weight:600; font-size:1rem; border-radius:30px; transition:background 0.3s ease; }
+    button[type="submit"]:hover, button[type="submit"]:focus { background:#33ffe6; outline:none; }
+
+    /* Footer */
+    footer { background:#0d1117; color:#444c56; text-align:center; padding:1rem 1rem 3rem; font-size:0.9rem; }
+    footer .scroll-top { position:fixed; bottom:2rem; right:2rem; background:#00ffcc; color:#0d1117; border:none; border-radius:50%; width:44px; height:44px; font-size:1.5rem; display:flex; justify-content:center; align-items:center; box-shadow:0 0 10px #00ffccaa; transition:background 0.3s ease; cursor:pointer; z-index:1000; }
+    footer .scroll-top:hover, footer .scroll-top:focus { background:#33ffe6; outline:none; }
+
+    @media (max-width:600px) {
+      #hero h1 { font-size:2.5rem; }
+      #hero p { font-size:1.1rem; }
+      .btn-group { flex-direction:column; gap:1rem; }
+      .projects { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section id="hero" aria-label="Introduction">
+    <h1>Md Rashedun Nabi Rubel</h1>
+    <p>Expert in Web Automation | Python Developer</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-label="About Me">
+    <div class="container">
+      <p>I specialize in building efficient web automation tools and scripts using Python. With hands-on experience, I help streamline workflows for businesses and individuals alike.</p>
+      <div class="skills" aria-label="Skills">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Selenium</span>
+        <span class="skill-tag">Playwright</span>
+        <span class="skill-tag">BeautifulSoup</span>
+        <span class="skill-tag">Web Scraping</span>
+        <span class="skill-tag">Automation Scripting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" aria-label="Portfolio Projects">
+    <h2>Portfolio</h2>
+    <div class="projects">
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Auto Web Form Filler</h3>
+        <p class="project-desc">Automates filling and submitting web forms to save time and reduce errors.</p>
+        <p class="tech-stack">Python | Selenium | Automation</p>
+        <a href="https://github.com/username/auto-web-form-filler" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">E-commerce Scraper</h3>
+        <p class="project-desc">Scrapes product data from e-commerce sites for price comparison and analysis.</p>
+        <p class="tech-stack">Python | BeautifulSoup | Requests</p>
+        <a href="https://github.com/username/ecommerce-scraper" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Playwright Automation Suite</h3>
+        <p class="project-desc">End-to-end testing and automation using Playwright for modern web apps.</p>
+        <p class="tech-stack">Python | Playwright | CI/CD</p>
+        <a href="https://github.com/username/playwright-automation-suite" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Data Extraction Toolkit</h3>
+        <p class="project-desc">A toolkit for extracting and processing data from various web sources efficiently.</p>
+        <p class="tech-stack">Python | Selenium | BeautifulSoup</p>
+        <a href="https://github.com/username/data-extraction-toolkit" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-label="Contact Me">
+    <h2>Contact Me</h2>
+    <div class="container">
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:mrashedunnabirubel@gmail.com">mrashedunnabirubel@gmail.com</a></p>
+        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/md.rashedun.nabi.rubel" target="_blank" rel="noopener noreferrer">md.rashedun.nabi.rubel</a></p>
+        <p><strong>WhatsApp / Telegram:</strong> <a href="tel:+8801313291812">+8801313291812</a></p>
+      </div>
+      <div class="social-icons" role="list" aria-label="Social media links">
+        <a href="https://www.facebook.com/md.rashedun.nabi.rubel" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-facebook"></i></a>
+        <a href="https://t.me/+8801313291812" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/8801313291812" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <form id="contact-form" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required autocomplete="email" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Md Rashedun Nabi Rubel. All rights reserved.</p>
+    <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  </footer>
+
+<script>
+const scrollTopBtn = document.querySelector('.scroll-top');
+scrollTopBtn.style.display = 'none';
+window.addEventListener('scroll', () => {
+  scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if (!name || !email || !message) { alert('দয়া করে সব ফিল্ড পূরণ করুন।'); return; }
+  alert('ধন্যবাদ! তোমার মেসেজটি পাঠানো হয়েছে। শীঘ্রই উত্তর পাবেন।');
+  contactForm.reset();
+});
+</script>
+</body>
+</html>
